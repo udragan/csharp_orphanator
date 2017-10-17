@@ -1,7 +1,7 @@
 ﻿
 namespace TestProject.Models
 {
-	class Model
+	public class Model
 	{
 	}
 }

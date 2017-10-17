@@ -38,10 +38,14 @@ namespace com.udragan.csharp.Orphanator.MEF
 		public void Import()
 		{
 			_parsers = new List<ISolutionParser>();
-			ComposablePartCatalog catalog = new DirectoryCatalog(@".\plugins\");
 
-			CompositionContainer cc = new CompositionContainer(catalog);
-			cc.ComposeParts(this);
+			using (ComposablePartCatalog catalog = new DirectoryCatalog(@".\plugins\"))
+			{
+				using (CompositionContainer cc = new CompositionContainer(catalog))
+				{
+					cc.ComposeParts(this);
+				}
+			}
 		}
 
 		#endregion
