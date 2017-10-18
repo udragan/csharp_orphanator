@@ -5,9 +5,9 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator", "Orphanator\Orphanator.csproj", "{F653A649-C8B9-4B28-BCFE-A6E29DE74837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{CC802AC1-F442-4443-AB48-A74E2D302731}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator.Common", "Common\Orphanator.Common.csproj", "{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "ExampleProject\ExampleProject.csproj", "{CC802AC1-F442-4443-AB48-A74E2D302731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{F653A649-C8B9-4B28-BCFE-A6E29DE74837}.Debug|x64.Build.0 = Debug|x64
 		{F653A649-C8B9-4B28-BCFE-A6E29DE74837}.Release|x64.ActiveCfg = Release|x64
 		{F653A649-C8B9-4B28-BCFE-A6E29DE74837}.Release|x64.Build.0 = Release|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.ActiveCfg = Debug|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.Build.0 = Debug|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.ActiveCfg = Release|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.Build.0 = Release|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Debug|x64.ActiveCfg = Debug|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Debug|x64.Build.0 = Debug|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Release|x64.ActiveCfg = Release|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Release|x64.Build.0 = Release|x64
+		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.ActiveCfg = Debug|x64
+		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.Build.0 = Debug|x64
+		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.ActiveCfg = Release|x64
+		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
