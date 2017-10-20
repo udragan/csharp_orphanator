@@ -17,14 +17,19 @@ namespace com.udragan.csharp.Orphanator.MEF
 	{
 		#region Members
 
-		private string _pluginsFolder = "plugins";
-
 		[ImportMany(typeof(ISolutionParser))]
 		private ICollection<ISolutionParser> _parsers;
+
+		private string _pluginsFolder = "plugins";
 
 		#endregion
 
 		#region Properties
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="PluginImporter"/> is initialized.
+		/// </summary>
+		public bool Initialized { get; set; }
 
 		/// <summary>
 		/// Gets the count of loaded plugins.
@@ -61,8 +66,33 @@ namespace com.udragan.csharp.Orphanator.MEF
 				using (CompositionContainer cc = new CompositionContainer(catalog))
 				{
 					cc.ComposeParts(this);
+					Initialized = true;
 				}
 			}
+		}
+
+		public bool CanHandle(string ide)
+		{
+			int result = _parsers.Where(x => x.CanHandle(ide)).Count();
+
+			if (result == 1)
+			{
+				return true;
+			}
+
+			if (result == 0)
+			{
+				System.Console.WriteLine("No plugins can handle the request.");
+				return false;
+			}
+
+			System.Console.WriteLine("Multiple plugins found that can handle the request.");
+			return false;
+		}
+
+		public void Handle(string[] args)
+		{
+			ISolutionParser handler = _parsers.First(x => x.CanHandle(args[1]));
 		}
 
 		#endregion
