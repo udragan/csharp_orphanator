@@ -5,5 +5,6 @@
 	/// </summary>
 	public interface ISolutionParser
 	{
+		bool CanHandle();
 	}
 }
