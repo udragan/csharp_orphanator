@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator.Common", "Common
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "ExampleProject\ExampleProject.csproj", "{CC802AC1-F442-4443-AB48-A74E2D302731}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{537E80FB-B21A-4655-8677-FDD37378C422}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator.Plugins.VisualStudioIDEParser", "Plugins\VisualStudioIDEParser\Orphanator.Plugins.VisualStudioIDEParser.csproj", "{034D1529-C149-4B58-96F0-2FAA57BA2ADA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,8 +31,15 @@ Global
 		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.Build.0 = Debug|x64
 		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.ActiveCfg = Release|x64
 		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.Build.0 = Release|x64
+		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Debug|x64.ActiveCfg = Debug|x64
+		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Debug|x64.Build.0 = Debug|x64
+		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Release|x64.ActiveCfg = Release|x64
+		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{034D1529-C149-4B58-96F0-2FAA57BA2ADA} = {537E80FB-B21A-4655-8677-FDD37378C422}
 	EndGlobalSection
 EndGlobal

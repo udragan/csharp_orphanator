@@ -12,19 +12,26 @@ namespace com.udragan.csharp.Orphanator
 			bool argumentsParsed = true;
 			string ide = string.Empty;
 
-			if (args.Length != 2)
+			if (argumentsParsed &&
+				args.Length != 2)
 			{
 				System.Console.WriteLine("No sufficient parameters!");
 				argumentsParsed = false;
 			}
 
-			if (!string.Equals(args[0], "-ide", StringComparison.InvariantCultureIgnoreCase))
+			if (argumentsParsed)
 			{
-				Console.WriteLine("wrong argument");
-				argumentsParsed = false;
+				if (!string.Equals(args[0], "-ide", StringComparison.OrdinalIgnoreCase))
+				{
+					Console.WriteLine("wrong argument");
+					argumentsParsed = false;
+				}
+				else
+				{
+					ide = args[1];
+				}
 			}
-
-			ide = args[1];
+			//////////////////////////////////////////////
 
 			if (argumentsParsed)
 			{
