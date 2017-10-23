@@ -71,6 +71,13 @@ namespace com.udragan.csharp.Orphanator.MEF
 			}
 		}
 
+		/// <summary>
+		/// Determines whether any of the loaded plugins can handle the provided IDE.
+		/// </summary>
+		/// <param name="ide">The IDE.</param>
+		/// <returns>
+		///   <c>true</c> if any of the loaded plugins ca handle the provided IDE; otherwise, <c>false</c>.
+		/// </returns>
 		public bool CanHandle(string ide)
 		{
 			int result = _parsers.Where(x => x.CanHandle(ide)).Count();
@@ -83,16 +90,27 @@ namespace com.udragan.csharp.Orphanator.MEF
 			if (result == 0)
 			{
 				System.Console.WriteLine("No plugins can handle the request.");
+
 				return false;
 			}
 
 			System.Console.WriteLine("Multiple plugins found that can handle the request.");
+
 			return false;
 		}
 
-		public void Handle(string[] args)
+		/// <summary>
+		/// Handles the specified arguments.
+		/// </summary>
+		/// <param name="args">The arguments.</param>
+		/// <returns>
+		/// A collection of paths to orphans.
+		/// </returns>
+		public IEnumerable<string> Handle(string[] args)
 		{
 			ISolutionParser handler = _parsers.First(x => x.CanHandle(args[1]));
+
+			return handler.Handle(args);
 		}
 
 		#endregion

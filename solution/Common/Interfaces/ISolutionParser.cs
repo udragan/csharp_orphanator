@@ -1,4 +1,5 @@
-﻿namespace com.udragan.csharp.Orphanator.Common.Interfaces
+﻿using System.Collections.Generic;
+namespace com.udragan.csharp.Orphanator.Common.Interfaces
 {
 	/// <summary>
 	/// A base interface for plugins.
@@ -18,5 +19,12 @@
 		///   <c>true</c> if this instance can handle the specified IDE; otherwise, <c>false</c>.
 		/// </returns>
 		bool CanHandle(string ide);
+
+		/// <summary>
+		/// Parse the solution/projects at provided path.
+		/// </summary>
+		/// <param name="args">The arguments.</param>
+		/// <returns>A collection of paths to orphans.</returns>
+		IEnumerable<string> Handle(string[] args);
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using com.udragan.csharp.Orphanator.Common.Interfaces;
 
@@ -37,6 +38,20 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 		public bool CanHandle(string ide)
 		{
 			return string.Equals(IDE, ide, StringComparison.OrdinalIgnoreCase);
+		}
+
+		/// <summary>
+		/// Handles the specified arguments.
+		/// </summary>
+		/// <param name="args">The arguments.</param>
+		/// <returns>
+		/// A collection of paths to orphans.
+		/// </returns>
+		public IEnumerable<string> Handle(string[] args)
+		{
+			IEnumerable<string> result = new List<string>();
+
+			return result;
 		}
 
 		#endregion

@@ -11,9 +11,11 @@ namespace com.udragan.csharp.Orphanator
 			// parse arguments (TODO: create separate generic arguments parser)
 			bool argumentsParsed = true;
 			string ide = string.Empty;
+			string solutionPath = string.Empty;
+			bool isDryRun = false;
 
 			if (argumentsParsed &&
-				args.Length != 2)
+				args.Length < 2)
 			{
 				System.Console.WriteLine("No sufficient parameters!");
 				argumentsParsed = false;
@@ -31,6 +33,37 @@ namespace com.udragan.csharp.Orphanator
 					ide = args[1];
 				}
 			}
+
+			if (argumentsParsed)
+			{
+				if (!string.Equals(args[2], "-path", StringComparison.OrdinalIgnoreCase))
+				{
+					Console.WriteLine("wrong argument");
+					argumentsParsed = false;
+				}
+				else
+				{
+					solutionPath = args[3];
+				}
+			}
+
+			if (argumentsParsed)
+			{
+				if (args.Length < 5)
+				{
+					Console.WriteLine("no dry-run argument.");
+				}
+				else
+				{
+					isDryRun = true;
+				}
+			}
+
+			Console.WriteLine("Arguments");
+			Console.WriteLine(string.Format("\tide\t: {0}", ide));
+			Console.WriteLine(string.Format("\tpath\t: {0}", solutionPath));
+			Console.WriteLine(string.Format("\tdry-run\t: {0}", isDryRun));
+			Console.WriteLine("---------------------------");
 			//////////////////////////////////////////////
 
 			if (argumentsParsed)
@@ -47,6 +80,8 @@ namespace com.udragan.csharp.Orphanator
 					if (pluginImporter.CanHandle(ide))
 					{
 						System.Console.WriteLine("handled.");
+
+						pluginImporter.Handle(args);
 
 					}
 					else
