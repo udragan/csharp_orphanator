@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 using com.udragan.csharp.Orphanator.Common.Interfaces;
 
 namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
@@ -69,8 +71,43 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 			Console.WriteLine("---------------------------");
 			Console.WriteLine(string.Join("\n", projectFilePaths.Select(x => Path.GetFullPath(x))));
 			Console.WriteLine();
+			Console.WriteLine("Parsing project files...");
+
+			foreach (string projectFilePath in projectFilePaths)
+			{
+				Console.WriteLine(string.Format("\t{0}", Path.GetFileName(projectFilePath)));
+
+				XDocument projectDoc = XDocument.Load(projectFilePath);
+
+				IEnumerable<string> outputPaths = GetAbsoluteOutputPaths(projectDoc, projectFilePath);
+			}
 
 			return result;
+		}
+
+		#endregion
+
+		#region Private methods
+
+		[Pure]
+		private static XNamespace GetNamespace(XDocument doc)
+		{
+			return doc.Root.GetDefaultNamespace();
+		}
+
+		[Pure]
+		private static IEnumerable<string> GetAbsoluteOutputPaths(XDocument doc, string projectFilePath)
+		{
+			XNamespace documentNamespace = GetNamespace(doc);
+
+			IEnumerable<string> outputPathNodes = doc.Descendants(documentNamespace + "OutputPath")
+				.Select(x => Path.Combine(Path.GetDirectoryName(projectFilePath), x.Value));
+
+			Console.WriteLine(string.Format("\t\tOutput paths: {0}",
+					string.Join(", ", outputPathNodes)));
+			Console.WriteLine();
+
+			return outputPathNodes;
 		}
 
 		#endregion
