@@ -12,6 +12,11 @@ namespace com.udragan.csharp.Orphanator.Common.Interfaces
 		string Ide { get; }
 
 		/// <summary>
+		/// The code file extensions that are being considered in the process.
+		/// </summary>
+		HashSet<string> CodeFileExtensions { get; }
+
+		/// <summary>
 		/// Determines whether this instance can handle the specified IDE.
 		/// </summary>
 		/// <param name="ide">The IDE.</param>

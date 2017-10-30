@@ -21,10 +21,16 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 
 		private const string IDE = "vs";
 		private string _defaultOutputPath = @"\obj\";
+		private HashSet<string> _codeFileExtensions = new HashSet<string>
+		{
+			".cs",
+			".xaml",
+			".xml"
+		};
 
 		#endregion
 
-		#region ISolutionParser
+		#region ISolutionParser members
 
 		/// <summary>
 		/// Gets the IDE that this parser instance can handle.
@@ -32,6 +38,14 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 		public string Ide
 		{
 			get { return IDE; }
+		}
+
+		/// <summary>
+		/// The code file extensions that are being considered in the process.
+		/// </summary>
+		public HashSet<string> CodeFileExtensions
+		{
+			get { return _codeFileExtensions; }
 		}
 
 		/// <summary>
@@ -43,7 +57,7 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 		/// </returns>
 		public bool CanHandle(string ide)
 		{
-			return string.Equals(IDE, ide, StringComparison.OrdinalIgnoreCase);
+			return string.Equals(Ide, ide, StringComparison.OrdinalIgnoreCase);
 		}
 
 		/// <summary>
@@ -93,17 +107,16 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 				// retrieve all file paths of interest but skip project output paths
 				IEnumerable<string> allFiles = Directory.EnumerateFiles(args[3], "*.*", SearchOption.AllDirectories)
 					.Where(x => outputPaths.All(y => !x.Contains(y)))
-					.Where(x => Path.GetExtension(x).Equals(".cs"));
+					.Where(x => CodeFileExtensions.Contains(Path.GetExtension(x)));
 
 				Console.WriteLine(string.Join("\n", allFiles));
 				Console.WriteLine();
 
 
 				// retrieve file paths of interest (cs, xaml, xml...) from project file
-				//TODO: consider all applicable file extensions, not only cs
 				IEnumerable<string> parsedFiles = projectDoc.Descendants()
 					.Where(x => x.Attribute("Include") != null)
-					.Where(x => Path.GetExtension(x.Attribute("Include").Value).Equals(".cs"))
+					.Where(x => CodeFileExtensions.Contains(Path.GetExtension(x.Attribute("Include").Value)))
 					.Select(x => Path.Combine(Path.GetDirectoryName(projectFilePath), x.Attribute("Include").Value));
 
 				Console.WriteLine(string.Join("\n", parsedFiles));
@@ -138,7 +151,6 @@ namespace com.udragan.csharp.Orphanator.Plugins.VisualStudioIDEParser
 				.Select(x => Path.Combine(Path.GetDirectoryName(projectFilePath), x.Value))
 				.ToList();
 			outputPathNodes.Add(Path.Combine(Path.GetDirectoryName(projectFilePath), _defaultOutputPath));
-
 
 			Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "\t\tOutput paths: {0}",
 					string.Join(", ", outputPathNodes)));
