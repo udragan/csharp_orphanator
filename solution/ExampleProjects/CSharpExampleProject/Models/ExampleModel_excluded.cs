@@ -1,4 +1,4 @@
-﻿namespace com.udragan.csharp.ExampleProject.Models
+﻿namespace com.udragan.csharp.CSharpExampleProject.Models
 {
 	/// <summary>
 	/// Example model (not included in the project)

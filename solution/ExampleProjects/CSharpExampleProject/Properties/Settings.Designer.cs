@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace com.udragan.csharp.ExampleProject.Properties {
+namespace com.udragan.csharp.CSharpExampleProject.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

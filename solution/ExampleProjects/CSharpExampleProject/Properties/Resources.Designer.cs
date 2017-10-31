@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace com.udragan.csharp.ExampleProject.Properties {
+namespace com.udragan.csharp.CSharpExampleProject.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace com.udragan.csharp.ExampleProject.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("com.udragan.csharp.ExampleProject.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("com.udragan.csharp.CSharpExampleProject.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

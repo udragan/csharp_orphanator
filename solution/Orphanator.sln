@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator", "Orphanator\Or
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator.Common", "Common\Orphanator.Common.csproj", "{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "ExampleProject\ExampleProject.csproj", "{CC802AC1-F442-4443-AB48-A74E2D302731}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{537E80FB-B21A-4655-8677-FDD37378C422}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphanator.Plugins.VisualStudioIDEParser", "Plugins\VisualStudioIDEParser\Orphanator.Plugins.VisualStudioIDEParser.csproj", "{034D1529-C149-4B58-96F0-2FAA57BA2ADA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleProjects", "ExampleProjects", "{EBBA4CC2-75D0-4637-91E5-08E5D96E4FBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExampleProject", "ExampleProjects\CSharpExampleProject\CSharpExampleProject.csproj", "{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,19 +29,20 @@ Global
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Debug|x64.Build.0 = Debug|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Release|x64.ActiveCfg = Release|x64
 		{FDFC61E9-EDBA-4475-9C94-9B92940EDCF0}.Release|x64.Build.0 = Release|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.ActiveCfg = Debug|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Debug|x64.Build.0 = Debug|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.ActiveCfg = Release|x64
-		{CC802AC1-F442-4443-AB48-A74E2D302731}.Release|x64.Build.0 = Release|x64
 		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Debug|x64.ActiveCfg = Debug|x64
 		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Debug|x64.Build.0 = Debug|x64
 		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Release|x64.ActiveCfg = Release|x64
 		{034D1529-C149-4B58-96F0-2FAA57BA2ADA}.Release|x64.Build.0 = Release|x64
+		{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D}.Debug|x64.ActiveCfg = Debug|x64
+		{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D}.Debug|x64.Build.0 = Debug|x64
+		{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D}.Release|x64.ActiveCfg = Release|x64
+		{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{034D1529-C149-4B58-96F0-2FAA57BA2ADA} = {537E80FB-B21A-4655-8677-FDD37378C422}
+		{009A6D7F-7826-4AC5-9FEC-E3DEB3B5C86D} = {EBBA4CC2-75D0-4637-91E5-08E5D96E4FBC}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TestProject
+namespace com.udragan.csharp.CSharpExampleProject
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
