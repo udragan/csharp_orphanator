@@ -60,9 +60,9 @@ namespace com.udragan.csharp.Orphanator
 			}
 
 			Console.WriteLine("Arguments");
-			Console.WriteLine(string.Format("\tide\t: {0}", ide));
-			Console.WriteLine(string.Format("\tpath\t: {0}", solutionPath));
-			Console.WriteLine(string.Format("\tdry-run\t: {0}", isDryRun));
+			Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "\tide\t: {0}", ide));
+			Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "\tpath\t: {0}", solutionPath));
+			Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "\tdry-run\t: {0}", isDryRun));
 			Console.WriteLine("---------------------------");
 			//////////////////////////////////////////////
 
